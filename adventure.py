@@ -64,22 +64,21 @@ class Main_Engine(object):
         else:
             return ("Exits: "+" ".join(temp_list))
         # return(self.temp_list)
+    
 
     def __play_game(self):
         # starting_room = self.map_of_game_list[self.which_room_index]
-        # try:
-            self.printer(self.__name_beaut_str())
-            self.printer(self._desc_beaut_str())
-            self.printer(self._exit__beaut_str())
-            self.user_input = input("What would you like to do?  ")
-            # self.go_actions(choice_key)
-            self.input_parser()
-            self.printer(self.__name_beaut_str())
-            self.printer(self._desc_beaut_str())
-            self.printer(self._exit__beaut_str())
+        try:
+            while(True):
+                self.printer(self.__name_beaut_str())
+                self.printer(self._desc_beaut_str())
+                self.printer(self._exit__beaut_str())
+                self.user_input = input("What would you like to do?  ")
+                self.input_parser()
+                
 
-        # except Exception as e:  # TODO Add some data here
-        #     print(e)
+        except Exception as e:  # TODO Add some data here
+            print(e)
         # while (True):
 
     def printer(self, str):
@@ -122,6 +121,27 @@ class Main_Engine(object):
         self.regex_attribute_input_action_dict = dict(
             zip(attribute_input_action, regex_attribute_input_action_list))
 
+    def __go_action_is_it_possible(self,attribute):  # to check if the go is possible
+        for index,i in enumerate(self.map_of_game_list[self.which_room_index]["exits"].keys()):
+            if attribute.lower() == i.lower():
+                    return True,index
+        return False,""
+      
+    def __move_room(self,new_index):
+        self.which_room_index=new_index
+
+    def __action_go(self,attribute):
+       print(attribute)
+       possible,index_of_item=self.__go_action_is_it_possible(attribute)# function to check if input is possible and get index of the new key
+       if possible:
+           to_index=list(self.map_of_game_list[self.which_room_index]["exits"].values())[index_of_item]# get the index
+           self.__move_room(to_index)# move the room
+       else:
+           print("please give correct parameter")# TODO integrate it with error spitting function 
+                
+
+
+
     def input_parser(self):
         # parsing all the user input into this
         # will divide into a tuple having at into a tuple of having three index
@@ -147,14 +167,15 @@ class Main_Engine(object):
                 pass
         #now to check those actions which will take arguments
         elif findall_list_user_input[0][0] =='' and findall_list_user_input[0][1]!='' and findall_list_user_input[0][2]!='':
-            
+            # To remove all white spaces from the input 
+            self.parameters_after_action=findall_list_user_input[0][2].strip()
             if re.search(self.regex_attribute_input_action_dict["get"],findall_list_user_input[0][1]):
                 # link the function function go 
                 pass
 
             elif re.search(self.regex_attribute_input_action_dict["go"],findall_list_user_input[0][1]):
-                # link the function function go 
-                pass
+                self.__action_go(self.parameters_after_action)
+                
         elif findall_list_user_input[0][0] =='' and findall_list_user_input[0][1]!='' and findall_list_user_input[0][2]=='':
             if re.search(self.regex_attribute_input_action_dict["get"],findall_list_user_input[0][1]):
                 # custom error 
@@ -168,25 +189,19 @@ class Main_Engine(object):
                 pass
            
 
-    def go_actions(self, choice_key: str):
-        # TODO put in input parser Note that case does not matter for any verbs, and arbitrary whitespace is allowed.
-        # TODO check the choice of the key is correct.
+    # def go_actions(self, choice_key: str):
+    #     # TODO put in input parser Note that case does not matter for any verbs, and arbitrary whitespace is allowed.
+    #     # TODO check the choice of the key is correct.
 
-        self.which_room_index = self.map_of_game_list[self.which_room_index]["exits"][choice_key]
+    #     self.which_room_index = self.map_of_game_list[self.which_room_index]["exits"][choice_key]
 
-        print(self.which_room_index)
+    #     print(self.which_room_index)
 
-        return (True)
+    #     return (True)
         # choice_key=str(choice_key).lower()
         # temp_list_extis=list(list(self.map_of_game_list[self.which_room_index][""]))
         # temp_list_extis=map(lambda x : (str(x)).lower(),temp_list_extis)
 
-
-# class action(Main_Engine):
-#     def __init__(self) -> None:
-#         super().__init__(self)
-#     def action_go(self):
-#         print(self.action_go)
 
 
 if __name__ == "__main__":
