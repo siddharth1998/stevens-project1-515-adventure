@@ -48,3 +48,6 @@ elif re.search(self.regex_no_input_action_dict["action_name"], findall_list_user
 
 </code>
 
+
+# Architecture 
+<img src="https://chargearth.com/static//images/cs515/map_architecture.png">
