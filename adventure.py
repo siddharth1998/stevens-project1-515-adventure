@@ -297,7 +297,7 @@ class Main_Engine(object):
     # to check if the go is possible
     def __go_action_is_it_possible(self, attribute):
         for index, i in enumerate(self.map_of_game_list[self.which_room_index]["exits"].keys()):
-            if attribute.lower() == i.lower():
+            if attribute.lower().strip() == i.lower().strip():
                 value_of_key_in_map=i
                 return True, index , value_of_key_in_map
         return False, "" ,""
