@@ -53,7 +53,7 @@ class Main_Engine(object):
         temp_dict = self.map_of_game_list[self.which_room_index]["exits"]
         temp_list = list(temp_dict.keys())
         if temp_list == []:
-            return 0
+            return ("Exits:\n")
         else:
             return ("Exits: "+" ".join(temp_list)+"\n")
 
@@ -76,6 +76,7 @@ class Main_Engine(object):
         x = self.__items__beaut_str()
         if x != None:
             self.printer(x)
+        
         self.printer(self._exit__beaut_str())
 
     def printer(self, str):
