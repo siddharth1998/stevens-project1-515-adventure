@@ -340,7 +340,7 @@ class Main_Engine(object):
                 item_from_list=self.update_map("pop",get_item)  # if there remove it from map
                 self.add_item(item_from_list)# and add it to the inventory
                 
-                self.printer(f"You pick up the {temp_item}")
+                self.printer(f"You pick up the {temp_item}.")
               
             else:
                 self.printer(f"There's no {get_item} anywhere.")# TODO ERROR 
