@@ -80,14 +80,15 @@ class Main_Engine(object):
 
     def printer(self, str):
         try:
-            for c in str + '\n':
-                sys.stdout.write(c)
-                sys.stdout.flush()
-                time.sleep(3./90)
+            # for c in str + '\n':
+            #     sys.stdout.write(c)
+            #     sys.stdout.flush()
+            #     time.sleep(3./90)
             # for c in str + '\n':
             #     sys.stdout.write(c)
             #     sys.stdout.flush()
             # self.printer(str)
+            print(str)
             return True
         except:
             return False
@@ -270,7 +271,7 @@ class Main_Engine(object):
             return self.is_item_in_inventory(get_item)
             # return False     
         else:
-            print("You're not carrying anything.")# Custom error 
+            self.printer("You're not carrying anything.")# Custom error 
             return False # TODO handle this
 
     def is_item_in_inventory(self,get_item):
@@ -297,19 +298,21 @@ class Main_Engine(object):
     def __go_action_is_it_possible(self, attribute):
         for index, i in enumerate(self.map_of_game_list[self.which_room_index]["exits"].keys()):
             if attribute.lower() == i.lower():
-                return True, index
-        return False, ""
+                value_of_key_in_map=i
+                return True, index , value_of_key_in_map
+        return False, "" ,""
 
     def __move_room(self, new_index):
         self.which_room_index = new_index
 
     def __action_go(self, attribute):
         # function to check if input is possible and get index of the new key
-        possible, index_of_item = self.__go_action_is_it_possible(attribute)
+        possible, index_of_item,value_of_key_in_map = self.__go_action_is_it_possible(attribute)
         if possible:
             to_index = list(self.map_of_game_list[self.which_room_index]["exits"].values())[
                 index_of_item]  # get the index
             self.__move_room(to_index)  # move the room
+            self.printer(f"You go {value_of_key_in_map}.\n")
             return True
         else:
             # TODO integrate it with error spitting function
@@ -331,13 +334,14 @@ class Main_Engine(object):
     def __action_get(self,get_item):# get item action function :: 1
         
         if "items" in self.map_of_game_list[self.which_room_index]:
-            
             if self.__get_me_items(item_name=get_item.strip()):# is item there 
                 temp_item=get_item
                 get_item=get_item.strip()
                 item_from_list=self.update_map("pop",get_item)  # if there remove it from map
                 self.add_item(item_from_list)# and add it to the inventory
-                self.printer(self.printer(f"You pick up the {temp_item}"))
+                
+                self.printer(f"You pick up the {temp_item}")
+              
             else:
                 self.printer(f"There's no {get_item} anywhere.")# TODO ERROR 
                 return False
@@ -355,7 +359,6 @@ class Main_Engine(object):
             for i in temp_list:
                 i=i.strip()
                 if i==item_name or i.lower()==item_name or i.upper()==item_name:
-                    print(i,item_name)
                     return True
             return False
         
@@ -375,9 +378,14 @@ class Main_Engine(object):
         # actions
 
         findall_list_user_input = re.findall(
-            "^(?:(\w+)\s*$)|^(?:(\w+)\s+(\w+\s*[\w\s,]*)$)", self.user_input)
+            "^(?:\s*(\w+)\s*$)|^(?:\s*(\w+)\s+(\w+\s*[\w\s,]*)$)", self.user_input)
         if findall_list_user_input==[]:
-            self.printer("Error, Please give a correct input")
+            if re.findall("\"",self.user_input):
+                self.printer("Error, Please remove \" from input")
+            elif re.findall('\'',self.user_input):
+                self.printer("Error, Please remove \' from input")
+            else:
+                self.printer("Error, Please remove unessary character from parameters")
         elif  findall_list_user_input[0][0] != '' :
             if re.search(self.regex_no_input_action_dict["look"], findall_list_user_input[0][0]):
                 # self.__lookup_actions()
@@ -431,7 +439,9 @@ class Main_Engine(object):
             self.parameters_after_action = findall_list_user_input[0][2].strip()
             if re.search(self.regex_attribute_input_action_dict["get"], findall_list_user_input[0][1]):
                 # link the function function go
+           
                 if (self.__action_get(findall_list_user_input[0][2])):
+                    
                     return True
                 else:
                     return False
@@ -474,7 +484,7 @@ class Main_Engine(object):
                 flag = False
                 while (True and not flag):
                     try:
-                        self.user_input = input("What would you like to do?  ")
+                        self.user_input = input("What would you like to do? ")
                         flag = self.input_parser()
                     except EOFError:
                         self.printer("\nUse 'quit' to exit.")

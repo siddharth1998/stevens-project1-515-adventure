@@ -1,6 +1,6 @@
 [
     {"name": "Mission Details",
-     "desc": "You the cyber warrior code name 'SHOGUN', \n You  are transported in the building of Russian Nuke control, where all the nuclear capabilities of China, North Korea, Russia are present, \n Your task is to disable all these threats at once, by  spreading the malware into their systems \n The CIA and RAW have kept payloads in different rooms, to keep the Suspicion low\n, The Navy seals will keep the security engaged you will have no resistance to move in the building. \n THE WORLD DEPENDS ON YOU !!!!  , ALL THE BEST",
+     "desc": "You the cyber warrior code name 'SHOGUN', \nYou  are transported in the building of Russian Nuke control, where all the nuclear capabilities of China, North Korea, Russia are present, \nYour task is to disable all these threats at once, by  spreading the malware into their systems \nThe CIA and RAW have kept payloads in different rooms, to keep the Suspicion low.\nThe Navy seals will keep the security engaged you will have no resistance to move in the building. \nTHE WORLD DEPENDS ON YOU !!!!, ALL THE BEST",
      "exits": { "ahead": 1 }
     },
     {"name": "The Hall",
@@ -8,7 +8,7 @@
      "exits": {  "east": 2,"north":3 }
     },
     {"name": "Scientists's Room",
-    "desc": "A room filled with numerous files and data about multiple systems. \n Let's do RECON, \n  Go through each item on the desk of the Head of Department. \n... \n... \n... Ah found many things \n ",
+    "desc": "A room filled with numerous files and data about multiple systems.\nLet's do RECON,\nGo through each item on the desk of the Head of Department.\n...\n...\n... Ah found many things\n",
     "items":["glasses","chewing gum","cigarettes", "cyanide", "lighter","vodka", "wallet","system intel", "letters","mobile phone"],
     "exits": {  "west": 1 }
    },
@@ -21,7 +21,7 @@
     "items":["boxers","hunting knife","tooth brush", "id card","used socks","spectacles","gold ring"],
     "exits": { "west":  3 }
    },{"name": "Cafeteria",
-   "desc": "Uuuuuuuu, what a smell, is it pastry or is it coffee!!! No it is coffee Cake, Yum Yum \n, If I remember correctly guys in CIA told they have kept the USB payload in a cafe where is it ? \n What's that pastry box doing upon the counter, lets see in it ",
+   "desc": "Uuuuuuuu, what a smell, is it pastry or is it coffee!!! No it is coffee Cake, Yum Yum.\nIf I remember correctly guys in CIA told they have kept the USB payload in a cafe where is it ? \nWhat's that pastry box doing upon the counter, lets see in it ",
    "items":["coffee cake","spoon","USB","napkin", "a note containing a kiss in red lipstick"],
    "exits": { "south":  3,"in_shaft": 6 }
 },
@@ -38,7 +38,7 @@
   "desc": "The command center is filled with scientists and army members, bam bam bam .",
   "exits": { "south":7},
   "boss":"True",
-  "winning_text":" Bam Bam, You used the Desert Eagle gun to kill those soldiers, and inserted the malware, \n the Navy seal team blasted open the ceiling to help you come out, malware has spread through the interconnected networks, we have saved the world, the world owes you a debt agent 'SHOGUN'",
+  "winning_text":" Bam Bam, You used the Desert Eagle gun to kill those soldiers, and inserted the malware, \nthe Navy seal team blasted open the ceiling to help you come out, malware has spread through the interconnected networks, we have saved the world, the world owes you a debt agent 'SHOGUN'",
   "winning":["system intel","id card","USB","Desert Eagle Gun"]
  }
 ]
