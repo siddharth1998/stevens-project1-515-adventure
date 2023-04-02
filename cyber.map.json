@@ -1,0 +1,44 @@
+[
+    {"name": "Mission Details",
+     "desc": "You the cyber warrior code name 'SHOGUN', \n You  are transported in the building of Russian Nuke control, where all the nuclear capabilities of China, North Korea, Russia are present, \n Your task is to disable all these threats at once, by  spreading the malware into their systems \n The CIA and RAW have kept payloads in different rooms, to keep the Suspicion low\n, The Navy seals will keep the security engaged you will have no resistance to move in the building. \n THE WORLD DEPENDS ON YOU !!!!  , ALL THE BEST",
+     "exits": { "ahead": 1 }
+    },
+    {"name": "The Hall",
+     "desc": "Wow, A big hall with gloomy red color curtains, having portraits of soviet era leaders, and many windows having a view of the gloomy climate. ",
+     "exits": {  "east": 2,"north":3 }
+    },
+    {"name": "Scientists's Room",
+    "desc": "A room filled with numerous files and data about multiple systems. \n Let's do RECON, \n  Go through each item on the desk of the Head of Department. \n... \n... \n... Ah found many things \n ",
+    "items":["glasses","chewing gum","cigarettes", "cyanide", "lighter","vodka", "wallet","system intel", "letters","mobile phone"],
+    "exits": {  "west": 1 }
+   },
+   {"name": "Inside Garden",
+    "desc": "Chewy Chewy, As the birds chirps, we were able to glaze on a massive garden. let's hope there are no snakes in here :)",
+    "exits": { "south":1 ,"west":  4, "north":5 }
+   },
+   {"name": "Changing room",
+    "desc": "Eww, What's that smell, is that the changing rooms, let sneak into the locker of the general and check for items. ",
+    "items":["boxers","hunting knife","tooth brush", "id card","used socks","spectacles","gold ring"],
+    "exits": { "west":  3 }
+   },{"name": "Cafeteria",
+   "desc": "Uuuuuuuu, what a smell, is it pastry or is it coffee!!! No it is coffee Cake, Yum Yum \n, If I remember correctly guys in CIA told they have kept the USB payload in a cafe where is it ? \n What's that pastry box doing upon the counter, lets see in it ",
+   "items":["coffee cake","spoon","USB","napkin", "a note containing a kiss in red lipstick"],
+   "exits": { "south":  3,"in_shaft": 6 }
+},
+{"name": "Armoury",
+   "desc": "Boom Boom, this is what business is called, So many weapons but of no use, without the man who weild it, here I come to take the command, where is the sweet Desert Eagel gun, so that I can take command of the nuke center ",
+   "items":["AK 47 automatic rifle","95 automatic rifle","Bazooka","Desert Eagle Gun","M16 gun"],
+   "exits": { "back_shaft":  5,"north": 7 }
+}
+,{"name": "Hallway",
+"desc": "The metal walls with a pungent smell of rust, how gloomy can it be. Hat's of to your bravery you reached till here. \nHope you have collected everything agent 'SHOGUN', Because now you will take control of the nuke center and insert malware",
+"exits": { "south": 5, "north":8  }
+},
+{"name": "Nuke Center",
+  "desc": "The command center is filled with scientists and army members, bam bam bam .",
+  "exits": { "south":7},
+  "boss":"True",
+  "winning_text":" Bam Bam, You used the Desert Eagle gun to kill those soldiers, and inserted the malware, \n the Navy seal team blasted open the ceiling to help you come out, malware has spread through the interconnected networks, we have saved the world, the world owes you a debt agent 'SHOGUN'",
+  "winning":["system intel","id card","USB","Desert Eagle Gun"]
+ }
+]

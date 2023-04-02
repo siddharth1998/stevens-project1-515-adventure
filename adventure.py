@@ -207,7 +207,19 @@ class Main_Engine(object):
         
         ''')
         self.printer(self.map_of_game_list[self.which_room_index]["winning_text"])
-        self.printer("******************** THE END ********************")
+
+        self.printer(r'''
+     _       _       _      _______ _            ______ _   _ _____       _       _       _    
+  /\| |/\ /\| |/\ /\| |/\  |__   __| |          |  ____| \ | |  __ \   /\| |/\ /\| |/\ /\| |/\ 
+  \ ` ' / \ ` ' / \ ` ' /     | |  | |__   ___  | |__  |  \| | |  | |  \ ` ' / \ ` ' / \ ` ' / 
+ |_     _|_     _|_     _|    | |  | '_ \ / _ \ |  __| | . ` | |  | | |_     _|_     _|_     _|
+  / , . \ / , . \ / , . \     | |  | | | |  __/ | |____| |\  | |__| |  / , . \ / , . \ / , . \ 
+  \/|_|\/ \/|_|\/ \/|_|\/     |_|  |_| |_|\___| |______|_| \_|_____/   \/|_|\/ \/|_|\/ \/|_|\/ 
+
+  : Game Engine Created By Siddharth Jain    
+        ''')
+
+        # self.printer("******************** THE END ********************")
         exit(0)
 
 
@@ -263,8 +275,9 @@ class Main_Engine(object):
 
     def is_item_in_inventory(self,get_item):
         for i in self.obj_inventory.inside_inventory:
-                if i==get_item.lower().strip():# checking the input is in the inventory
-                    temp_data=self.obj_inventory.inside_inventory.pop(self.obj_inventory.inside_inventory.index(i))
+                get_item=get_item.strip()
+                if i==get_item or i.lower()==get_item or i.upper()==get_item:# checking the input is in the inventory
+                    temp_data=self.obj_inventory.inside_inventory.pop(self.obj_inventory.inside_inventory.index(get_item))
                     # print(temp_data)
                     if self.map_of_game_list[self.which_room_index].get("items"):
                         self.map_of_game_list[self.which_room_index]["items"].append(temp_data)
@@ -309,21 +322,21 @@ class Main_Engine(object):
 
     def update_map(self,operation,item_name):
         if operation=="pop":
-            for i in self.map_of_game_list[self.which_room_index]["items"]:
-                if i.lower()==item_name:
-                    self.map_of_game_list[self.which_room_index]["items"].pop(self.map_of_game_list[self.which_room_index]["items"].index(item_name))
-                    return True
+            for index,i in enumerate(self.map_of_game_list[self.which_room_index]["items"]):
+                if i==item_name or i.lower()==item_name or i.upper()==item_name:
+                    item_from_list=self.map_of_game_list[self.which_room_index]["items"].pop(index)# we can not trust user input
+                    return item_from_list
 
 
     def __action_get(self,get_item):# get item action function :: 1
         
         if "items" in self.map_of_game_list[self.which_room_index]:
             
-            if self.__get_me_items(item_name=get_item.lower().strip()):# is item there 
+            if self.__get_me_items(item_name=get_item.strip()):# is item there 
                 temp_item=get_item
-                get_item=get_item.lower().strip()
-                self.update_map("pop",get_item)  # if there remove it from map
-                self.add_item(get_item)# and add it to the inventory
+                get_item=get_item.strip()
+                item_from_list=self.update_map("pop",get_item)  # if there remove it from map
+                self.add_item(item_from_list)# and add it to the inventory
                 self.printer(self.printer(f"You pick up the {temp_item}"))
             else:
                 self.printer(f"There's no {get_item} anywhere.")# TODO ERROR 
@@ -340,7 +353,9 @@ class Main_Engine(object):
             return False
         else:
             for i in temp_list:
-                if i.lower().strip()==item_name:
+                i=i.strip()
+                if i==item_name or i.lower()==item_name or i.upper()==item_name:
+                    print(i,item_name)
                     return True
             return False
         

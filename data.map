@@ -12,12 +12,12 @@
   "exits": { "west": 1, "south": 3 },
   "items": [],
   "boss":"True",
-  "winning_text":" You have come more powerfull all women want to marry you and the citizens want to make you as the protector of the realm",
+  "winning_text":" You have come more powerfull all, the women want to marry you and the citizens want to make you as the protector of the realm",
   "winning":["rose","chocolate"]
  },
  {"name": "A red room",
   "desc": "This room is fancy. It's red!",
   "exits": { "north": 2, "west": 0 },
-  "items": ["rose","chocolate","rose"]
+  "items": ["rose","chocolate","ROSE"]
  }
 ]
