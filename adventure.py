@@ -53,7 +53,7 @@ class Main_Engine(object):
         temp_dict = self.map_of_game_list[self.which_room_index]["exits"]
         temp_list = list(temp_dict.keys())
         if temp_list == []:
-            return ("Exits:\n")
+            return ("Exits: \n")
         else:
             return ("Exits: "+" ".join(temp_list)+"\n")
 
