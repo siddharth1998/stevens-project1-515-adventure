@@ -378,14 +378,9 @@ class Main_Engine(object):
         # actions
 
         findall_list_user_input = re.findall(
-            "^(?:\s*(\w+)\s*$)|^(?:\s*(\w+)\s+(\w+\s*[\w\s,]*)$)", self.user_input)
+            "^(?:\s*(\w+)\s*$)|^(?:\s*(\w+)\s+(.*)$)", self.user_input)
         if findall_list_user_input==[]:
-            if re.findall("\"",self.user_input):
-                self.printer("Error, Please remove \" from input")
-            elif re.findall('\'',self.user_input):
-                self.printer("Error, Please remove \' from input")
-            else:
-                self.printer("Error, Please remove unessary character from parameters")
+            self.printer("Error, Please remove unnecessary character from parameters")
         elif  findall_list_user_input[0][0] != '' :
             if re.search(self.regex_no_input_action_dict["look"], findall_list_user_input[0][0]):
                 # self.__lookup_actions()
