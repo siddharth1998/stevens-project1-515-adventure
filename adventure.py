@@ -309,8 +309,9 @@ class Main_Engine(object):
         # function to check if input is possible and get index of the new key
         possible, index_of_item,value_of_key_in_map = self.__go_action_is_it_possible(attribute)
         if possible:
-            to_index = list(self.map_of_game_list[self.which_room_index]["exits"].values())[
-                index_of_item]  # get the index
+            # to_index = list(self.map_of_game_list[self.which_room_index]["exits"].values())[
+            #     index_of_item]  # get the index
+            to_index = self.map_of_game_list[self.which_room_index]["exits"][value_of_key_in_map]
             self.__move_room(to_index)  # move the room
             self.printer(f"You go {value_of_key_in_map}.\n")
             return True
