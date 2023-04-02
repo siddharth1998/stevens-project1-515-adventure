@@ -377,8 +377,16 @@ class Main_Engine(object):
         # will need to create all test cases where more than one
         # actions
 
-        findall_list_user_input = re.findall(
-            "^(?:\s*(\w+)\s*$)|^(?:\s*(\w+)\s+(.*)$)", self.user_input)
+        split_input_string = self.user_input.split()
+        if len(split_input_string) > 1:
+            findall_list_user_input = [("", split_input_string[0], " ".join(split_input_string[1:]))]
+        elif len(split_input_string) == 1:
+            findall_list_user_input = [(split_input_string[0], "", "")]
+        else:
+            findall_list_user_input = []
+
+        # findall_list_user_input = re.findall(
+        #     "^(?:\s*(\w+)\s*$)|^(?:\s*(\w+)\s+(.*)$)", self.user_input)
         if findall_list_user_input==[]:
             self.printer("Error, Please remove unnecessary character from parameters")
         elif  findall_list_user_input[0][0] != '' :
