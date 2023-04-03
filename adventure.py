@@ -36,13 +36,13 @@ class Main_Engine(object):
                 # loading the list into the variable
                 self.map_of_game_list = json.load(json_file)
         except Exception as e:
-            self.printer("Please provde correct format of map")
+            print("Please provde correct format of map")
             exit(1)
         try:
             if type(self.map_of_game_list) != list:  # checking type for defensive programming
                 raise ValueError
         except Exception as e:
-            self.printer("Please check the map file")
+            print("Please check the map file")
             return False
         return True
     
@@ -79,7 +79,7 @@ class Main_Engine(object):
             return
         
     def __boss_text_beaut_str(self):
-        return("\n End Level "+self.map_of_game_list[self.which_room_index].get("boss")+"\n")
+        return("\n End Level \n")
 
 
     def room_context_printing(self):
@@ -292,7 +292,7 @@ class Main_Engine(object):
             # return False     
         else:
             self.printer("You're not carrying anything.")# Custom error 
-            return False # TODO handle this
+            return False # DONE handle this
 
     def is_item_in_inventory(self,get_item):
         for i in self.obj_inventory.inside_inventory:
@@ -336,7 +336,7 @@ class Main_Engine(object):
             self.printer(f"You go {value_of_key_in_map}.\n")
             return True
         else:
-            # TODO integrate it with error spitting function
+            # DONE integrate it with error spitting function
             self.printer(f"There's no way to go {attribute}.")
             return False
 
@@ -366,10 +366,10 @@ class Main_Engine(object):
                 self.printer(f"You pick up the {item_from_list}.")
               
             else:
-                self.printer(f"There's no {get_item} anywhere.")# TODO ERROR 
+                self.printer(f"There's no {get_item} anywhere.")# DONE ERROR 
                 return False
         else:
-            self.printer(f"There's no {get_item} anywhere.")#TODO ERROR output
+            self.printer(f"There's no {get_item} anywhere.")#DONE ERROR output
             return False
 
     
@@ -438,15 +438,15 @@ class Main_Engine(object):
                 # throw error no action like this
                 # if those action which required parameters were not give so their custom functions need to be created
                 if re.search(self.regex_attribute_input_action_dict["go"], findall_list_user_input[0][0]):
-                    # TODO ERROR custom errror
+                    # DONE ERROR custom errror
                     self.printer("Sorry, you need to 'go' somewhere.")
                     return False
                 if re.search(self.regex_attribute_input_action_dict["get"], findall_list_user_input[0][0]):
-                    # TODO ERROR custom errror
+                    # DONE ERROR custom errror
                     self.printer("Sorry, you need to 'get' something.")
                     return False
                 if re.search(self.regex_attribute_input_action_dict["drop"], findall_list_user_input[0][0]):
-                    # TODO ERROR custom errror
+                    # DONE ERROR custom errror
                     if len(self.obj_inventory.inside_inventory)==[]:
                         self.printer("Sorry, you need to have something in inventory to drop something.")
                         return False
@@ -492,7 +492,7 @@ class Main_Engine(object):
                 pass
 
             elif re.search(self.regex_attribute_input_action_dict["go"], findall_list_user_input[0][1]):
-                # TODO ERROR custom
+                # DONE ERROR custom
                 self.printer("Sorry, you need to 'go' somewhere.")
             else:
                 # generic error the action dose not exsists
@@ -519,9 +519,7 @@ class Main_Engine(object):
             self.printer("\nYou pressed CTRL+C \n--------\nExiting\n--------")
             exit(0)
 
-        # except Exception as e:  # TODO Add some data here
-        #     self.printer(e)
-        #     pass
+  
 
 
 if __name__ == "__main__":

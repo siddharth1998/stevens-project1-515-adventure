@@ -1,10 +1,14 @@
 # sjain70 (sjain70@stevens.edu) Siddharth Jain
-
+# Project Adventure.py
 "# stevens-project1-515-adventure" 
+
+
+## Please open this file in a readme viewer 
+
 
 ### github : https://github.com/siddharth1998/stevens-project1-515-adventure
 
-### Estimated Time :: 50 hours
+### Estimated Time :: 45 hours
 
 ### Testing :: Manual testing ( written at the end of readme)
 
@@ -17,6 +21,10 @@ Chosen Extensions:
 1. Drop
 2. Help
 3. Winning and loosing
+
+# Interesting stuff :
+1. run the program using <code style="color:red;font-size:20px"> python3 adventure.py cyber.map cool </code>
+* in above cool argument will change the printing type
 
 # Classes
 ## Main_Engine
@@ -94,8 +102,14 @@ In this room if the player enters, the player will have no control, if they coll
   "boss":"True",</br>
   "winning_text":" Bam Bam, You used the Desert Eagle gun to kill those soldiers, and inserted the malware, \n the Navy seal team blasted open the ceiling to help you come out, malware has spread through the interconnected networks, we have saved the world, the world owes you a debt agent 'SHOGUN'",</br>
   "winning":["system intel","id card","USB","Desert Eagle Gun"]</br>
+  "not_to_have":["cyanide", "lighter","vodka"]</br>
  }</code>
 
+To create a winning room you will need to add <br>
+"boss":"True",<-- This denotes winning room will print out the endlevel note</br> 
+"winning_text":"bla bla"  <-- This denotes the text after winning </br>
+"winning": ["a","b"] <-- The items required for winning  </br>
+"not_to_have": ["c","d"] <-- The items which should not be there in the inventory </br>
 
 ## My game cyber.map
 
