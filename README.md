@@ -41,7 +41,7 @@ The main idea was to load the json file as an object and move around in the map 
 ---
 
 
-# Functions 
+# Important Functions 
 
 ### __play_game
 * This is the location the game will be intitated
@@ -118,7 +118,7 @@ There is no game without winning and loosing:
 To win in this game engine you must have certain items which should be there 
 as per the format the winning dictionary should look like 
 
-In this room if the player enters, the player will have no control, if they collect the items in the game then only the game outcome will be achived, if suppose the items are not collected then player will loose.
+In this room if the player enters, the player will have no control, if they collect the items in the game then only the game outcome will be achived, if suppose the items are not collected then player will loose, and suppose they have the items which are prohibited are in their inventory then also they will loose, they will have to <code>drop</code> it.
 
 <code>{</br>"name": "name of room",</br>
   "desc": "description of activities going on in the last room ",</br>
