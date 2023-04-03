@@ -57,6 +57,29 @@ The main idea was to load the json file as an object and move around in the map 
 * Output is a list of the strings which is required for regex 
 * <h2> if you need to add a new command please add in the respective list </h2>
 
+
+## __action_drop
+* Handling the drop options from inventory append operation in the items list in map
+
+## __action_go
+* Handling the move operation and traverse <code>self.map_of_game_list </code>
+
+
+
+## __action_get
+* Handling the taking  of items from <code>self.map_of_game_list</code> into <code>inventory.inside_inventory</code>
+
+
+## __action_quit
+* Quit the Program
+
+
+## __action_help
+* Printing out the actions from the two mapping lists
+
+## room_context_printing
+* Function to handle look function and printing the state of the room
+
 ---
 # Registering a new action
 
@@ -74,10 +97,7 @@ Now if you have no attribute based action then the format will be
 elif re.search(self.regex_no_input_action_dict["action_name"], findall_list_user_input[0][0]):
 
 </code>
-<hr>
 
-<hr>
-hr
 
 # Extensions 
 Chosen Extensions:
