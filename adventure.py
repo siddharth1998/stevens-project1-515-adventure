@@ -347,7 +347,9 @@ class Main_Engine(object):
     def update_map(self,operation,item_name):
         if operation=="pop":
             for index,i in enumerate(self.map_of_game_list[self.which_room_index]["items"]):
-                if i==item_name or i.lower()==item_name or i.upper()==item_name:
+                # if i==item_name or i.lower()==item_name or i.upper()==item_name:
+                if i.lower()==item_name.lower():
+
                     item_from_list=self.map_of_game_list[self.which_room_index]["items"].pop(index)# we can not trust user input
                     return item_from_list
 
@@ -356,12 +358,12 @@ class Main_Engine(object):
         
         if "items" in self.map_of_game_list[self.which_room_index]:
             if self.__get_me_items(item_name=get_item.strip()):# is item there 
-                temp_item=get_item
+                # temp_item=get_item
                 get_item=get_item.strip()
                 item_from_list=self.update_map("pop",get_item)  # if there remove it from map
                 self.add_item(item_from_list)# and add it to the inventory
                 
-                self.printer(f"You pick up the {temp_item}.")
+                self.printer(f"You pick up the {item_from_list}.")
               
             else:
                 self.printer(f"There's no {get_item} anywhere.")# TODO ERROR 
@@ -379,7 +381,8 @@ class Main_Engine(object):
         else:
             for i in temp_list:
                 i=i.strip()
-                if i==item_name or i.lower()==item_name or i.upper()==item_name:
+                # if i==item_name or i.lower()==item_name or i.upper()==item_name:
+                if i.lower()==item_name.lower():
                     return True
             return False
         

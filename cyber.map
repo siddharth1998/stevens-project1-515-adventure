@@ -19,7 +19,7 @@
    {"name": "Changing room",
     "desc": "Eww, What's that smell, is that the changing rooms, let sneak into the locker of the general and check for items. ",
     "items":["boxers","hunting knife","tooth brush", "id card","used socks","spectacles","gold ring"],
-    "exits": { "west":  3 }
+    "exits": { "east":  3 }
    },{"name": "Cafeteria",
    "desc": "Uuuuuuuu, what a smell, is it pastry or is it coffee!!! No it is coffee Cake, Yum Yum.\nIf I remember correctly guys in CIA told they have kept the USB payload in a cafe where is it ? \nWhat's that pastry box doing upon the counter, lets see in it ",
    "items":["coffee cake","spoon","USB","napkin", "a note containing a kiss in red lipstick"],
