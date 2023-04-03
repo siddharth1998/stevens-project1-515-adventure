@@ -76,6 +76,7 @@ The main idea was to load the json file as an object and move around in the map 
 
 ## __action_help
 * Printing out the actions from the two mapping lists
+<i> It is important to note that I could have class.__dict__ to get a new created function having specefic format like action__* where *= name of the action word</i>
 
 ## room_context_printing
 * Function to handle look function and printing the state of the room
@@ -162,3 +163,8 @@ Now if you type <code>get ROSE</code> then => in inventory ROSE will go, now if 
 9. Help spits out dynamically ( I used a 2 lists which acted as a table ) in list : <code> no_input_action </code> will contain all the action key words with no parameters and <code> attribute_input_action </code> will contain the action keywords which require parameters
 10. Drop action is working and the transfer of element from inventory to map is working, if no items then give error.
 11. Winning condition is also working. Both winning and loosing have been tested
+
+# Future work 
+* Auto complete
+* More work on the story
+* Interaction like : attack, trade etc
