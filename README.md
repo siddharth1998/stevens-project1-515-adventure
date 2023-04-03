@@ -121,6 +121,13 @@ as per the format the winning dictionary should look like
 
 In this room if the player enters, the player will have no control, if they collect the items in the game then only the game outcome will be achived, if suppose the items are not collected then player will loose, and suppose they have the items which are prohibited are in their inventory then also they will loose, they will have to <code>drop</code> it.
 
+## Why this game ? 
+You will learn the different steps of hacking, using fictional world examples: 
+1. Recon 
+2. Access exploitation
+3. Payloads creation
+4. Persistence
+
 <code>{</br>"name": "name of room",</br>
   "desc": "description of activities going on in the last room ",</br>
   "exits": { "south":7},</br>
