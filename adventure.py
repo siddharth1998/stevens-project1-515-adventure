@@ -2,6 +2,7 @@ import sys
 import time
 import json
 import re
+import random
 
 class inventory(object):  # inventory state management
     def __init__(self) -> None:
@@ -20,10 +21,13 @@ class Main_Engine(object):
     def __init__(self, file_name):  # constructor
 
         if (self.__getting_map(file_name)):
+            self.__cool_argument()
             self.which_room_index = 0
             self.__global_action_regex_creator()  # To create the regex for action words
             self.obj_inventory=inventory()
             self.__play_game()
+
+    
 
     # Loading the map
     def __getting_map(self, file_name):  # internal function of the class to get the code
@@ -41,6 +45,16 @@ class Main_Engine(object):
             self.printer("Please check the map file")
             return False
         return True
+    
+    # Get the cool argument 
+    def __cool_argument(self):
+        if len(sys.argv)==3:
+            if sys.argv[2]=="cool":
+                self.cooler=True
+            else:
+                self.cooler=False
+        else:
+            self.cooler=False
 
     # Printer based system
     def __name_beaut_str(self):
@@ -81,15 +95,13 @@ class Main_Engine(object):
 
     def printer(self, str):
         try:
-            # for c in str + '\n':
-            #     sys.stdout.write(c)
-            #     sys.stdout.flush()
-            #     time.sleep(3./90)
-            # for c in str + '\n':
-            #     sys.stdout.write(c)
-            #     sys.stdout.flush()
-            # self.printer(str)
-            print(str)
+            if self.cooler:
+                for c in str + '\n':
+                    sys.stdout.write(c)
+                    sys.stdout.flush()
+                    time.sleep(3./random.randint(60,100))
+            else:
+                print(str)
             return True
         except:
             return False

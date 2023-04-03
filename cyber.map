@@ -1,6 +1,6 @@
 [
     {"name": "Mission Details",
-     "desc": "You the cyber warrior code name 'SHOGUN', \nYou  are transported in the building of Russian Nuke control, where all the nuclear capabilities of China, North Korea, Russia are present, \nYour task is to disable all these threats at once, by  spreading the malware into their systems \nThe CIA and RAW have kept payloads in different rooms, to keep the Suspicion low.\nThe Navy seals will keep the security engaged you will have no resistance to move in the building. \nTHE WORLD DEPENDS ON YOU !!!!, ALL THE BEST",
+     "desc": "You the cyber warrior code name 'SHOGUN', \nYou are transported in the building of Russian Nuke control, where all the nuclear capabilities of Russia and North Korea are present, \nYour task is to disable all these threats at once, by spreading the malware into their systems \nThe CIA and RAW have kept payloads in different rooms, to keep the Suspicion low.\nThe Navy seals will keep the security engaged you will have no resistance to move in the building. \nTHE WORLD DEPENDS ON YOU !!!!, ALL THE BEST",
      "exits": { "ahead": 1 }
     },
     {"name": "The Hall",
