@@ -35,7 +35,14 @@ class Main_Engine(object):
             with open(file_name) as json_file:
                 # loading the list into the variable
                 self.map_of_game_list = json.load(json_file)
+        except FileNotFoundError:
+            print("File not found")
+            exit(1)
+        except OSError:
+            print("Could not open the file")
+            exit(1)
         except Exception as e:
+            print(e)
             print("Please provde correct format of map")
             exit(1)
         try:
