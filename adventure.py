@@ -137,12 +137,19 @@ class Main_Engine(object):
         
     def what_is_required_for_winning(self):# helper function for the winning but to check if the user has the required items are not
         winning_condition=self.map_of_game_list[self.which_room_index]["winning"]
+        prohibited_items=self.map_of_game_list[self.which_room_index]["not_to_have"]
+        for i in prohibited_items:
+            if i in self.obj_inventory.inside_inventory:
+                self.printer(f"You had {i} item in your inventory")
+                self.player_loose()
+                return False
         for  i in winning_condition:
             if i in self.obj_inventory.inside_inventory:
                 pass
             else:
                 self.player_loose()
                 return False # will not reach here as self.player_loose will exit if loose
+        
         self.player_win_banner()
         return True # will not reach here as self.player_win_banner will exit if won
         

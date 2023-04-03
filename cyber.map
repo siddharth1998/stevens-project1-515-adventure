@@ -39,6 +39,7 @@
   "exits": { "south":7},
   "boss":"True",
   "winning_text":" Bam Bam, You used the Desert Eagle gun to kill those soldiers, and inserted the malware, \nthe Navy seal team blasted open the ceiling to help you come out, malware has spread through the interconnected networks, we have saved the world, the world owes you a debt agent 'SHOGUN'",
-  "winning":["system intel","id card","USB","Desert Eagle Gun"]
+  "winning":["system intel","id card","USB","Desert Eagle Gun"],
+  "not_to_have":["cyanide", "lighter","vodka"]
  }
 ]

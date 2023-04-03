@@ -1,5 +1,22 @@
+# sjain70 (sjain70@stevens.edu) Siddharth Jain
+
 "# stevens-project1-515-adventure" 
 
+### github : https://github.com/siddharth1998/stevens-project1-515-adventure
+
+### Estimated Time :: 50 hours
+
+### Testing :: Manual testing ( written at the end of readme)
+
+### any bugs or issues you could not resolve :: NO
+
+### an example of a difficult issue or bug and how you resolved : The assignment was easy on handling the parser was a difficult thing I first created regex then removed that and used split functionality
+
+# Extensions 
+Chosen Extensions:
+1. Drop
+2. Help
+3. Winning and loosing
 
 # Classes
 ## Main_Engine
@@ -80,10 +97,16 @@ In this room if the player enters, the player will have no control, if they coll
  }</code>
 
 
+## My game cyber.map
+
+The game is simple where you will need to collect some items and drop some items, if you collect it in the gameplay, to win: if you have the following items you will win : "system intel","id card","USB","Desert Eagle Gun" and reach the end room  or else loose, apart from that you will need to drop items like :  "cyanide", "lighter","vodka" if you have taken it or else you will loose. You will have to drop the items in any room before reaching the end room. You will get a warning room also so that players can be cautioned about it.
+
+I could have made more things in it but the time constraint was a problem.
+
+
 ## Things which can be different :
 * When getting an item having case sensitive items like getting "ROSE", "rose" </br>
 Now if you type <code>get ROSE</code> then => in inventory ROSE will go, now if you type <code> get ROSE </code> then => rose will go into inventory
-
 
 
 <hr>
